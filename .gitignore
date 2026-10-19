@@ -1,0 +1,14 @@
+# Dependencies and build output
+**/node_modules/
+**/node_modules 2/
+**/dist/
+**/.astro/
+
+# Local environment and secrets
+**/.env
+**/.env.*
+!**/.env.sample
+
+# Local files
+.DS_Store
+*.log
