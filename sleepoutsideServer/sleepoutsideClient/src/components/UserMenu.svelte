@@ -19,14 +19,14 @@
   }
 
   onMount(() => {
-    document.addEventListener("click", closeMenu);
-    document.addEventListener("scroll", closeMenu, true);
-    document.addEventListener("keydown", handleKeydown);
+    window.addEventListener("click", closeMenu);
+    window.addEventListener("scroll", closeMenu, true);
+    window.addEventListener("keydown", handleKeydown);
 
     return () => {
-      document.removeEventListener("click", closeMenu);
-      document.removeEventListener("scroll", closeMenu, true);
-      document.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("click", closeMenu);
+      window.removeEventListener("scroll", closeMenu, true);
+      window.removeEventListener("keydown", handleKeydown);
     };
   });
 </script>

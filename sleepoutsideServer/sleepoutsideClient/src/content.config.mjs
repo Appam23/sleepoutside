@@ -8,7 +8,14 @@ import { glob, file } from "astro/loaders"; // Not available with legacy API
 
 // load our product info from the tents.json file
 const products = defineCollection({
-  loader: file("public/json/tents.json")
+  loader: async () => {
+    const response = await fetch(
+      import.meta.env.PUBLIC_SERVER_URL + "products?limit=200"
+    );
+    const data = await response.json();
+    // Must return an array of entries with an id property, or an object with IDs as keys and entries as values
+    return data.results
+  },
 });
 
 export const collections = { products };
