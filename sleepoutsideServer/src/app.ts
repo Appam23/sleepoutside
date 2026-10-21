@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
+import cors from 'cors';
 
 // Local Imports (NOTE: .mts extension is required in ESM)
 import routes from './routes/index.mts';
@@ -15,26 +16,11 @@ const __dirname = path.dirname(__filename);
 
 const app: express.Application = express();
 // Allow requests from the Astro frontend
-
-// Allow requests from the Astro frontend
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4321");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization"
-  );
-
-  if (req.method === "OPTIONS") {
-    res.sendStatus(204);
-    return;
-  }
-
-  next();
-});
+app.use(cors({
+  origin: 'http://localhost:4321',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, "public")));
