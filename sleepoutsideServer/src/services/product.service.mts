@@ -6,7 +6,7 @@ import type {
 } from "../models/types.mts";
 
 import productModel from "../models/product.model.mts";
-import { formatFields } from "./utils.mjs";
+import { formatFields } from "./utils.mts";
 
 export async function getAllProducts(query: QueryParams) {
   const findProduct: FindProductObj = {
