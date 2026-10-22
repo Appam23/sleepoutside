@@ -1,8 +1,12 @@
-import type {Product} from "./types.mts"
+import type { Product } from "./types.mts";
+
+const apiUrl = (
+  import.meta.env.PUBLIC_SERVER_URL ?? "http://localhost:3000/api/v1/"
+).replace(/\/?$/, "/");
 
 export async function findProductById(id: string): Promise<Product> {
   const response = await fetch(
-    "http://localhost:3000/api/v1/products/" + id,
+    `${apiUrl}products/${id}`,
   );
 
   if (!response.ok) {
@@ -27,7 +31,7 @@ export async function getProducts(
   params.set("offset", offset.toString());
 
   const response = await fetch(
-    `http://localhost:3000/api/v1/products?${params.toString()}`
+    `${apiUrl}products?${params.toString()}`
   );
 
   if (!response.ok) {

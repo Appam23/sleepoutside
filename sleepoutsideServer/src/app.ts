@@ -16,8 +16,15 @@ const __dirname = path.dirname(__filename);
 
 const app: express.Application = express();
 // Allow requests from the Astro frontend
+const allowedOrigins = (
+  process.env.FRONTEND_URL ?? "http://localhost:4321"
+)
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: 'http://localhost:4321',
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
