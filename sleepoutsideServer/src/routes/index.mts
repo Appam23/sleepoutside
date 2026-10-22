@@ -1,7 +1,7 @@
 
 import { Router } from "express";
-import productRoutes from "./product.routes.mjs";
-import swaggerRouter from "./swagger.routes.mjs";
+import productRoutes from "./product.routes.mts";
+import swaggerRouter from "./swagger.routes.mts";
 
 const router: Router = Router();
 
