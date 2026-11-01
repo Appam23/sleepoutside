@@ -2,6 +2,7 @@
 import { Router } from "express";
 import productRoutes from "./product.routes.mts";
 import swaggerRouter from "./swagger.routes.mts";
+import userRoutes from "./user.routes.mts";
 
 const router: Router = Router();
 
@@ -12,6 +13,7 @@ router.get("/", (req, res) => {
 
 // Load product routes
 router.use("/products", productRoutes);
+router.use("/users", userRoutes);
 
 // Load Swagger documentation routes
 router.use(swaggerRouter);
