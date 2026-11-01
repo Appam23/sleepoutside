@@ -2,6 +2,7 @@
 let {title} = Astro.props;
 import '../css/style.css';
 import UserMenu from "../components/UserMenu.svelte";
+import "../js/main.ts";
 ---
 <!doctype html>
 <html lang="en">
@@ -14,7 +15,7 @@ import UserMenu from "../components/UserMenu.svelte";
     <header class="divider">
       <div class="logo">
         <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-        <a href="index.astro"> Sleep<span class="highlight">Outside</span></a>
+        <a href="/"> Sleep<span class="highlight">Outside</span></a>
       </div>
       <nav class="menu-right">
         <div class="user-menu-container">

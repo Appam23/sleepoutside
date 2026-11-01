@@ -84,6 +84,7 @@ export interface User {
   _id?: string;
   email: string;
   password: string;
+  password_hash?: string;
   name: string;
   address?: Address;
   phoneNumbers?: PhoneNumber[];
